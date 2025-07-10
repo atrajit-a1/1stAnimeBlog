@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gara's Flight to Leaf Village - Anime Blog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ff6b6b;
+            --secondary-color: #4ecdc4;
+            --accent-color: #ffe66d;
+            --dark-color: #2d3436;
+            --light-color: #f9f9f9;
+            --border-color: #ddd;
+            --speech-bubble-color: #ffffff;
+            --naruto-color: #ff9f1a;
+            --gara-color: #8a4f3d;
+            --rika-color: #9b59b6;
+            --sazami-color: #3498db;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Comic Neue', cursive;
+            background-color: var(--light-color);
+            background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="%23f9f9f9"/><path d="M0 0L100 100M100 0L0 100" stroke="%23f0f0f0" stroke-width="1"/></svg>');
+            color: var(--dark-color);
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid var(--primary-color);
+            border-right: 5px solid var(--primary-color);
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="10" fill="%23ffffff10"/><circle cx="80" cy="80" r="15" fill="%23ffffff10"/><circle cx="50" cy="30" r="5" fill="%23ffffff10"/><circle cx="70" cy="40" r="8" fill="%23ffffff10"/></svg>');
+            opacity: 0.3;
+            border-radius: 10px;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Bangers', cursive;
+            letter-spacing: 1px;
+            color: var(--primary-color);
+            text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            font-size: 2.2rem;
+            margin: 40px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--accent-color);
+            position: relative;
+        }
+        
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .manga-panel {
+            background-color: white;
+            border: 3px solid var(--dark-color);
+            margin: 30px 0;
+            padding: 20px;
+            position: relative;
+            box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.2);
+        }
+        
+        .manga-panel::before {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            border: 1px dashed var(--border-color);
+            pointer-events: none;
+        }
+        
+        .manga-panel img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 15px auto;
+            border: 3px solid var(--dark-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform: rotate(-1deg);
+            transition: transform 0.3s ease;
+        }
+        
+        .manga-panel img:hover {
+            transform: rotate(0) scale(1.02);
+        }
+        
+        .dialogue {
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .speech {
+            position: relative;
+            padding: 15px 20px;
+            border-radius: 20px;
+            max-width: 80%;
+            font-weight: bold;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .speech::before {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            bottom: -10px;
+            transform: rotate(45deg);
+        }
+        
+        .speech.naruto {
+            align-self: flex-start;
+            background-color: var(--naruto-color);
+            color: white;
+            border-bottom-left-radius: 0;
+        }
+        
+        .speech.naruto::before {
+            left: 15px;
+            background-color: var(--naruto-color);
+        }
+        
+        .speech.gara {
+            align-self: flex-end;
+            background-color: var(--gara-color);
+            color: white;
+            border-bottom-right-radius: 0;
+        }
+        
+        .speech.gara::before {
+            right: 15px;
+            background-color: var(--gara-color);
+        }
+        
+        .speech.rika {
+            align-self: flex-start;
+            background-color: var(--rika-color);
+            color: white;
+            border-bottom-left-radius: 0;
+        }
+        
+        .speech.rika::before {
+            left: 15px;
+            background-color: var(--rika-color);
+        }
+        
+        .speech.sazami {
+            align-self: flex-end;
+            background-color: var(--sazami-color);
+            color: white;
+            border-bottom-right-radius: 0;
+        }
+        
+        .speech.sazami::before {
+            right: 15px;
+            background-color: var(--sazami-color);
+        }
+        
+        .character-name {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        
+        .naruto-name {
+            color: var(--naruto-color);
+        }
+        
+        .gara-name {
+            color: var(--gara-color);
+        }
+        
+        .rika-name {
+            color: var(--rika-color);
+        }
+        
+        .sazami-name {
+            color: var(--sazami-color);
+        }
+        
+        .thought {
+            font-style: italic;
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-left: 4px solid var(--secondary-color);
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        blockquote {
+            background-color: #f9f9f9;
+            border-left: 5px solid var(--accent-color);
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+            position: relative;
+        }
+        
+        blockquote p {
+            margin: 5px 0;
+        }
+        
+        blockquote::before {
+            content: "\201C";
+            font-size: 4rem;
+            position: absolute;
+            left: 10px;
+            top: -20px;
+            color: var(--accent-color);
+            opacity: 0.3;
+        }
+        
+        hr {
+            border: none;
+            height: 30px;
+            background-image: url('data:image/svg+xml;utf8,<svg width="20" height="10" viewBox="0 0 20 10" xmlns="http://www.w3.org/2000/svg"><path d="M0 5 L 20 5" stroke="%23ff6b6b" stroke-width="2" stroke-dasharray="1, 3"/></svg>');
+            background-repeat: repeat-x;
+            margin: 40px 0;
+        }
+        
+        code {
+            background-color: #f0f0f0;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+            color: var(--primary-color);
+        }
+        
+        strong {
+            color: var(--primary-color);
+        }
+        
+        em {
+            color: var(--secondary-color);
+            font-style: italic;
+        }
+        
+        .scene-transition {
+            text-align: center;
+            font-family: 'Bangers', cursive;
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin: 30px 0;
+            letter-spacing: 2px;
+            position: relative;
+        }
+        
+        .scene-transition::before,
+        .scene-transition::after {
+            content: "✧";
+            display: inline-block;
+            margin: 0 15px;
+            color: var(--accent-color);
+        }
+        
+        .next-episode {
+            text-align: center;
+            font-family: 'Bangers', cursive;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin: 50px 0 20px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            background-color: var(--dark-color);
+            color: white;
+            border-radius: 10px;
+        }
+        
+        .sound-effect {
+            font-family: 'Bangers', cursive;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            text-align: center;
+            transform: rotate(-5deg);
+            margin: 20px 0;
+            text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+        }
+        
+        .emoji {
+            font-size: 1.5em;
+            vertical-align: middle;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .manga-panel {
+                padding: 15px;
+            }
+            
+            .speech {
+                max-width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Gara's Flight to Leaf Village</h1>
+            <p>An Anime Adventure Blog</p>
+        </header>
+        
+        <div class="manga-panel">
+            <h2>Gara's Flight to Leaf Village</h2>
+            <p>Gara woke up late in the morning it is already 10:010 AM and flight is at 11:00 AM it is so late. Gara in hurry and tension in his face.</p>
+            <img src="garaLate.png" alt="Gara Late rise in morning">
+            <p>He quickly went to mirror and getting ready. Meanwhile Naruto called Gara and he feels shameful for being late.</p>
+            <img src="garashame.png" alt="Gara feeling shameful">
+            
+            <div class="dialogue">
+                <div class="speech gara">
+                    <div class="character-name gara-name">Gara:</div>
+                    Sorry naruto, my clock is not working properly may be.
+                </div>
+            </div>
+            
+            <img src="angryNaruto.png" alt="Angry Naruto">
+            
+            <div class="dialogue">
+                <div class="speech naruto">
+                    <div class="character-name naruto-name">Naruto:</div>
+                    <span class="emoji">😡😡</span> It is already <em>10:10 AM</em> Gara. Although you have become Kazekage (風影) but this doesn't mean I can pardon you. We are afterall friends as before. <code>Ya know</code>?
+                </div>
+                
+                <div class="speech gara">
+                    <div class="character-name gara-name">Gara:</div>
+                    Yeah, yeah ofcourse Naruto. I set alarm at 6:00 AM but don't know what happened? <span class="emoji">😟😟</span>
+                </div>
+                
+                <div class="speech naruto">
+                    <div class="character-name naruto-name">Naruto:</div>
+                    <span class="emoji">😡😡</span> I think your clock got stuck in your sandy weathers.
+                </div>
+            </div>
+            
+            <div class="thought">
+                <strong>In Naruto's mind:</strong> Gara, you slept well I think for the first time as the one tailed came out of you. Sorry Gara, I disturbed you <span class="emoji">😌</span>
+            </div>
+            
+            <img src="angrynaruto2.png" alt="Angry Naruto again">
+        </div>
+        
+        <hr>
+        
+        <div class="manga-panel">
+            <h2>Scene Changes</h2>
+            
+            <blockquote>
+                <p>Gara is ready to depart for airport to take flight for leaf village.</p>
+                <p>His mistress <code>dadi</code> Rika stopped him to give some tips about to be safe in the journey.</p>
+            </blockquote>
+            
+            <div class="dialogue">
+                <div class="speech rika">
+                    <div class="character-name rika-name">Rika:</div>
+                    Hello Gara. You are about to leave huh?
+                </div>
+                
+                <div class="speech gara">
+                    <div class="character-name gara-name">Gara:</div>
+                    Yes Lady Rika.
+                </div>
+                
+                <div class="speech rika">
+                    <div class="character-name rika-name">Rika:</div>
+                    Are you feeling weak?
+                </div>
+                
+                <div class="speech gara">
+                    <div class="character-name gara-name">Gara:</div>
+                    No. But..
+                </div>
+                
+                <div class="speech rika">
+                    <div class="character-name rika-name">Rika:</div>
+                    What is it Gara?
+                </div>
+                
+                <div class="speech gara">
+                    <div class="character-name gara-name">Gara:</div>
+                    I think I am not as strong as before. When one tailed was inside me I used to feel protected.
+                </div>
+                
+                <div class="speech rika">
+                    <div class="character-name rika-name">Rika:</div>
+                    Gara...! Listen, when even one tailed inside you, you felt pain while fighting to Lee. Can you remember? But What is the real protection from pain you think of? Being lonely from the world and feel self contained and work for only yourself? Or, feel the pain and find happiness in between pain while serving for your closed ones like Naruto told you?
+                </div>
+            </div>
+            
+            <div class="dialogue">
+                <div class="speech gara">
+                    <div class="character-name gara-name">Gara:</div>
+                    <div class="sound-effect">[Paused a bit! Silence..]</div>
+                    Yeah, I felt that day a severe pain in my head when fighting Naruto Uzumaki huh. He gave me much more physical damage and I also gave him. We were tired completely. But I could not resist the pain as my body got weak and I was only thiking about my body and not willing to give harm to it. But he still was crawling towards me.
+                </div>
+            </div>
+            
+            <img src="https://i.ytimg.com/vi/nJoh5NwXT5o/sddefault.jpg" alt="naruto crawling">
+            
+            <div class="dialogue">
+                <div class="speech gara">
+                    <div class="character-name gara-name">Gara:</div>
+                    That time I could not understood how he could do it? I thought later may be it was due to the beast inside him or he was more strong than me. But now I realise what gave him that resiliance. How he can always fight back. To protect his beloved ones. I understood it. In these days I really need to talk to him to know more about these ultimate power of relationship. So, I am going to meet him. I will be back soon.
+                </div>
+            </div>
+            
+            <div class="thought">
+                From behind the trees Sazami waticng. She thought to meet Gara before he leaves. But resisted herself. Understand the depth of Gara's feeling. She decided to wait for Gara to return. May be she understood Naruto will teach Gara about romantic relationship too.
+            </div>
+            
+            <img src="Gara-Rika-Sazami.png" alt="Gara, Rika and Sazami">
+        </div>
+        
+        <div class="next-episode">
+            More to come in next blog.......
+        </div>
+        
+        <footer>
+            <p>© Anime Book - 1st Story</p>
+        </footer>
+    </div>
+</body>
+</html>
